@@ -29,7 +29,7 @@
 - It will take 15 to 20 minutes to create the Cluster Control Plane 
 ```
 # Create Cluster
-eksctl create cluster --name=myeks22 \
+eksctl create cluster --name=ltech\
                       --region=us-east-1 \
                       --zones=us-east-1a,us-east-1b \
                       --without-nodegroup 
@@ -61,17 +61,17 @@ eksctl utils associate-iam-oidc-provider \
 ## Step-04: Create Node Group with additional Add-Ons in Public Subnets
 - These add-ons will create the respective IAM policies for us automatically within our Node Group role.
  ```
-# Create Public Node Group   
-eksctl create nodegroup --cluster=myeks22 \
+Create Public Node Group   
+eksctl create nodegroup --cluster=ltech \
                         --region=us-east-1 \
-                        --name=myeks22-ng-public1 \
+                        --name=ltech-ng-public1 \
                         --node-type=t3.medium \
                         --nodes=2 \
                         --nodes-min=2 \
                         --nodes-max=14 \
                         --node-volume-size=20 \
                         --ssh-access \
-                        --ssh-public-key=eks \
+                        --ssh-public-key=ltech.pub \
                         --managed \
                         --asg-access \
                         --external-dns-access \
